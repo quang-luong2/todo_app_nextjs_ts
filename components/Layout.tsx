@@ -1,8 +1,9 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { Formik, Field, Form, ErrorMessage, FormikHelpers } from 'formik'
 import * as Yup from 'yup'
-import { addTodo, deleteTodo, updateTodo } from '../redux/todoSlice'
 import { useDispatch, useSelector } from 'react-redux'
+import { v4 as uuid } from 'uuid'
+import { addTodo, deleteTodo, updateTodo } from '../redux/todoSlice'
 import Todo from '../typescript/model'
 import { RootState } from '../redux/configureStore'
 
@@ -31,15 +32,17 @@ const Layout: React.FC = () => {
   }
 
   const handleUpdateTodo = (index: number) => {
-    todos
-      ? todos.forEach((todo: Todo, indexTodo: number) => {
-          if (index === indexTodo) {
-            setIsStatus(true)
-            setInitialValue(todo)
-            setIndexTodo(index)
-          }
-        })
-      : null
+    if (todos) {
+      todos.forEach((todo: Todo, indexItem: number) => {
+        if (index === indexItem) {
+          setIsStatus(true)
+          setInitialValue(todo)
+          setIndexTodo(index)
+        }
+      })
+    } else {
+      return null
+    }
   }
 
   return (
@@ -67,7 +70,7 @@ const Layout: React.FC = () => {
                 <ErrorMessage name='name' component='div' className='form__error' />
               </div>
               <button type='submit' className='todo__btn todo__btn--add'>
-                {isStatus ? <i className='fas fa-check'></i> : <i className='fas fa-plus'></i>}
+                {isStatus ? <i className='fas fa-check' /> : <i className='fas fa-plus' />}
                 {isStatus ? 'Cập nhật' : 'Thêm'}
               </button>
             </Form>
@@ -76,24 +79,27 @@ const Layout: React.FC = () => {
             {todos.length === 0 ? (
               <div className='todo__notification'>Chưa có công việc nào !</div>
             ) : (
-              todos.map((todo: any, index: number) => {
+              todos.map((todo: Todo, index: number) => {
                 return (
-                  <div className='todo__item' key={index}>
+                  <div className='todo__item' key={uuid()}>
                     <input type='checkbox' />
                     <div className='todo__item__name'>{todo.name}</div>
                     <div className='todo__actions'>
                       <div
                         className='todo__btn todo__btn--update mr-05'
                         onClick={() => handleUpdateTodo(index)}
+                        aria-hidden='true'
                       >
-                        <i className='fas fa-pen'></i>
+                        <i className='fas fa-pen' />
                         Sửa
                       </div>
                       <div
                         className='todo__btn todo__btn--delete'
                         onClick={() => dispatch(deleteTodo(index))}
+                        aria-hidden='true'
+                        role='button'
                       >
-                        <i className='fas fa-trash-alt'></i>
+                        <i className='fas fa-trash-alt' />
                         Xóa
                       </div>
                     </div>

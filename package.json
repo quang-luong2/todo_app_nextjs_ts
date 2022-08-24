@@ -10,21 +10,40 @@
     },
     "dependencies": {
         "@reduxjs/toolkit": "^1.8.4",
+        "@types/uuid": "^8.3.4",
+        "eslint-config-prettier": "^8.4.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-security": "^1.4.0",
+        "eslint-plugin-sonarjs": "^0.12.0",
         "formik": "^2.2.9",
         "next": "12.2.5",
+        "prettier": "^2.5.1",
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "react-redux": "^8.0.2",
+        "react-uuid": "^1.0.2",
         "redux-persist": "^6.0.0",
+        "uuid": "^8.3.2",
         "yup": "^0.32.11"
     },
     "devDependencies": {
         "@types/node": "18.7.5",
         "@types/react": "18.0.17",
         "@types/react-dom": "18.0.6",
-        "eslint": "8.22.0",
+        "@typescript-eslint/eslint-plugin": "^5.34.0",
+        "eslint": "8.2.0",
+        "eslint-config-airbnb": "19.0.4",
         "eslint-config-next": "12.2.5",
+        "eslint-config-standard-with-typescript": "^22.0.0",
+        "eslint-plugin-import": "2.25.3",
+        "eslint-plugin-jsx-a11y": "6.5.1",
+        "eslint-plugin-n": "^15.2.5",
+        "eslint-plugin-promise": "^6.0.0",
+        "eslint-plugin-react": "7.28.0",
+        "eslint-plugin-react-hooks": "^4.3.0",
+        "husky": "^8.0.1",
+        "lint-staged": "^13.0.3",
         "sass": "^1.54.4",
-        "typescript": "4.7.4"
+        "typescript": "^4.7.4"
     }
 }

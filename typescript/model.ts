@@ -1,3 +1,3 @@
 export default interface Todo {
-    name: string
+  name: string
 }
