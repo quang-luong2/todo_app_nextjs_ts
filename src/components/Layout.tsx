@@ -4,7 +4,7 @@ import * as Yup from 'yup'
 import { useDispatch, useSelector } from 'react-redux'
 import { v4 as uuid } from 'uuid'
 import { addTodo, deleteTodo, updateTodo } from '../redux/todoSlice'
-import Todo from '../typescript/model'
+import Todo from '../interface/todo'
 import { RootState } from '../redux/configureStore'
 
 const Layout: React.FC = () => {

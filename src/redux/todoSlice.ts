@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import Todo from '../typescript/model'
+import Todo from '../interface/todo'
 
 const todoSlice = createSlice({
   name: 'todos',

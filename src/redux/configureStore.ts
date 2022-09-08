@@ -1,5 +1,4 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
-import todoReducer from './todoSlice'
 import {
   persistStore,
   persistReducer,
@@ -11,6 +10,7 @@ import {
   REGISTER,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
+import todoReducer from './todoSlice'
 
 const persistConfig = {
   key: 'todo',

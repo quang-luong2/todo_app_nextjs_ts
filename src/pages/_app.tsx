@@ -1,4 +1,4 @@
-import '../styles/sass/index.scss'
+import '../styles/index.scss'
 import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
